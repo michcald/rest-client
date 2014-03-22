@@ -8,7 +8,7 @@ class Delete extends \Michcald\RestClient\Consumer
     {
         $request = $this->getRequest();
 
-        $curl = new Rest_Request_Curl();
+        $curl = new \Michcald\RestClient\Curl();
         $curl->setOption(CURLOPT_TIMEOUT, 30)
                 ->setOption(CURLOPT_URL, $request->getUrl())
                 ->setOption(CURLOPT_RETURNTRANSFER, true)

@@ -14,7 +14,7 @@ class Put extends \Michcald\RestClient\Consumer
         fwrite($putData, $data);
         fseek($putData, 0);
         
-        $curl = new Rest_Request_Curl();
+        $curl = new \Michcald\RestClient\Curl();
         $curl->setOption(CURLOPT_TIMEOUT, 30)
                 ->setOption(CURLOPT_URL, $request->getUrl())
                 ->setOption(CURLOPT_RETURNTRANSFER, true)
