@@ -34,12 +34,20 @@ final class Curl
     
     public function getStatusCode()
     {
-        return $this->info['http_code'];
+        if (isset($this->info['http_code'])) {
+            return $this->info['http_code'];
+        }
+        
+        return null;
     }
     
     public function getContentType()
     {
-        return $this->info['content_type'];
+        if (isset($this->info['content_type'])) {
+            return $this->info['content_type'];
+        }
+        
+        return null;
     }
     
     public function getTotalTime()

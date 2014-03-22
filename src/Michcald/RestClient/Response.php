@@ -14,7 +14,7 @@ class Response
 
     public function setStatusCode($statusCode)
     {
-        $this->statusCode = (int)$statusCode;
+        $this->statusCode = $statusCode;
         
         return $this;
     }
