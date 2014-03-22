@@ -29,7 +29,7 @@ class Get extends \Michcald\RestClient\Consumer
         $response = new \Michcald\RestClient\Response();
         $response->setStatusCode($curl->getStatusCode())
             ->setContentType($curl->getContentType())
-            ->setBody($curl->getResponse());
+            ->setContent($curl->getResponse());
 
         return $response;
     }

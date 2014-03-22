@@ -8,7 +8,7 @@ class Response
     
     private $contentType;
 
-    private $body;
+    private $content;
 
     public function __construct() {}
 
@@ -36,15 +36,15 @@ class Response
         return $this->contentType;
     }
 
-    public function setBody($body)
+    public function setContent($content)
     {
-        $this->body = $body;
+        $this->content = $content;
         
         return $this;
     }
 
-    public function getBody()
+    public function getContent()
     {
-        return $this->body;
+        return $this->content;
     }
 }
