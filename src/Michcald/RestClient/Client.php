@@ -33,7 +33,7 @@ class Client
         return $this->call('delete', $url, $params);
     }
 
-    protected function call($method, $url, $params = array())
+    public function call($method, $url, $params = array())
     {
         $request = new Request();
         
