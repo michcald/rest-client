@@ -5,14 +5,19 @@ namespace Michcald\RestClient;
 class Client
 {
     private $auth;
-    
+
     public function setAuth(Auth $auth)
     {
         $this->auth = $auth;
-        
+
         return $this;
     }
-    
+
+    public function getAuth()
+    {
+        return $this->auth;
+    }
+
     public function get($url, $params = array())
     {
         return $this->call('get', $url, $params);
@@ -36,11 +41,11 @@ class Client
     public function call($method, $url, $params = array())
     {
         $request = new Request();
-        
+
         if ($this->auth) {
             $request->setAuth($this->auth);
         }
-        
+
         $consumer = null;
 
         switch ($method) {
@@ -62,11 +67,11 @@ class Client
 
         $request->setMethod($method)
             ->setUrl($url);
-        
+
         foreach ($params as $key => $value) {
             $request->addParam($key, $value);
         }
-        
+
         $consumer->setRequest($request);
 
         return $consumer->execute();
