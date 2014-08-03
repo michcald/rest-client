@@ -4,5 +4,5 @@ namespace Michcald\RestClient;
 
 abstract class Auth
 {
-    abstract public function execute(Curl $curl);
+    abstract public function execute(Curl $curl, Request $request);
 }
