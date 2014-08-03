@@ -16,7 +16,7 @@ class Delete extends \Michcald\RestClient\Consumer
                 ->setOption(CURLOPT_CUSTOMREQUEST, 'DELETE');
 
         if ($request->getAuth()) {
-            $request->getAuth()->execute($curl);
+            $request->getAuth()->execute($curl, $request);
         }
 
         $curl->execute();

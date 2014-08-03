@@ -9,11 +9,11 @@ class Put extends \Michcald\RestClient\Consumer
         $request = $this->getRequest();
 
         $data = http_build_query($request->getParams());
-        
+
         $putData = tmpfile();
         fwrite($putData, $data);
         fseek($putData, 0);
-        
+
         $curl = new \Michcald\RestClient\Curl();
         $curl->setOption(CURLOPT_TIMEOUT, 30)
                 ->setOption(CURLOPT_URL, $request->getUrl())
@@ -23,11 +23,11 @@ class Put extends \Michcald\RestClient\Consumer
                 ->setOption(CURLOPT_INFILESIZE, strlen($data));
 
         if ($request->getAuth()) {
-            $request->getAuth()->execute($curl);
+            $request->getAuth()->execute($curl, $request);
         }
 
         $curl->execute();
-        
+
         fclose($putData);
 
         $response = new \Michcald\RestClient\Response();

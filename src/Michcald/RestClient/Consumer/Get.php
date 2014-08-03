@@ -7,7 +7,7 @@ class Get extends \Michcald\RestClient\Consumer
     public function execute()
     {
         $request = $this->getRequest();
-        
+
         $url = $request->getUrl();
 
         if(count($request->getParams()) > 0) {
@@ -19,13 +19,13 @@ class Get extends \Michcald\RestClient\Consumer
             ->setOption(CURLOPT_URL, $url)
             ->setOption(CURLOPT_RETURNTRANSFER, true)
             ->setOption(CURLOPT_HTTPGET, true);
-        
+
         if ($request->getAuth()) {
-            $request->getAuth()->execute($curl);
+            $request->getAuth()->execute($curl, $request);
         }
 
         $curl->execute();
-        
+
         $response = new \Michcald\RestClient\Response();
         $response->setStatusCode($curl->getStatusCode())
             ->setContentType($curl->getContentType())
