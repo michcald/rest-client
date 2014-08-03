@@ -15,11 +15,21 @@ class HMAC extends \Michcald\RestClient\Auth
         return $this;
     }
 
+    public function getPublicKey()
+    {
+        return $this->publicKey;
+    }
+
     public function setPrivateKey($privateKey)
     {
         $this->privateKey = $privateKey;
 
         return $this;
+    }
+
+    public function getPrivateKey()
+    {
+        return $this->privateKey;
     }
 
     public function execute(\Michcald\RestClient\Curl $curl, \Michcald\RestClient\Request $request)
